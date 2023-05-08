@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class main {
+public class Main {
     static Scanner sc = new Scanner(System.in);
     static void nhapTK(Account tk){
         System.out.println("Nhap so tai khoan : ");
@@ -11,23 +11,16 @@ public class main {
     }
     public static void main(String[] args){
         Account a[] = null;
-        int b, n = 0;
+        int k, b, n = 0;
         long s, d, c, f;
         boolean flag = true;
         do{
             System.out.println("Chon chuc nang: ");
-            System.out.println("""
-                               1. Them tai khoan
-                               2. In thong tin
-                               3.Nap tien
-                               4.Rut tien
-                               5.Dao han
-                               6.Chuyen khoan
-                               So khac de thoat""");
+            System.out.println("1. Them tai khoan\n" + "2. In thong tin\n" + "3.Nap tien\n" + "4.Rut tien\n" + "5.Dao han\n" + "6.Chuyen khoan\n" + "So khac de thoat");
             b = sc.nextInt();
             switch (b){
-                case 1 -> {
-                    System.out.println("Nhap so luong khach hang ban muon nhap: ");
+                case 1 :
+                System.out.println("Nhap so luong khach hang ban muon nhap: ");
                     n = sc.nextInt();
                     a = new Account[n];
                     for (int i = 0; i < n; i++) {
@@ -35,28 +28,28 @@ public class main {
                         a[i] = new Account();
                         nhapTK(a[i]);
                     }
-                }
-                case 2 -> {
-                    System.out.printf("%-10s %-20s %-20s\n", "So TK", "Ten TK", "So tien trong TK");
+                    break;
+                case 2 :
+                System.out.printf("%-10s %-20s %-20s\n", "So TK", "Ten TK", "So tien trong TK");
                     for (int i = 0; i < n; i++) {
                         a[i].inTK();
                     }
-                }
-                case 3 -> {
-                    System.out.println("Nhap so tai khoan khach hang can nap tien: ");
-                    s = sc.nextLong();
-                    for (int i = 0; i < n; i++) {
-                        d = a[i].getSoTK();
-                        if (s == d) {
-                            System.out.println("Ban chon tai khoan: " + d);
-                            a[i].napTien();
-                        } else {
-                            System.out.println("");
-                        }
+                    break;
+                case 3 :
+                System.out.println("Nhap so tai khoan khach hang can nap tien: ");
+                s = sc.nextLong();
+                for (int i = 0; i < n; i++) {
+                    d = a[i].getSoTK();
+                    if (s == d) {
+                        System.out.println("Ban chon tai khoan: " + d);
+                        a[i].napTien();
+                    } else {
+                        System.out.println("");
                     }
                 }
-                case 4 -> {
-                    System.out.println("Nhap so tai khoan khach hang can rut tien: ");
+                break;
+                case 4 : 
+                System.out.println("Nhap so tai khoan khach hang can rut tien: ");
                     s = sc.nextLong();
                     for (int i = 0; i < n; i++) {
                         d = a[i].getSoTK();
@@ -65,25 +58,25 @@ public class main {
                             a[i].rutTien();
                         }
                     }
-                }
-                case 5 -> {
-                    System.out.println("Nhap so tai khoan khach hang can dao han: ");
-                    s = sc.nextLong();
-                    for (int i = 0; i < n; i++) {
-                        d = a[i].getSoTK();
-                        if (s == d) {
-                            System.out.println("Ban chon tai khoan: " + d);
-                            a[i].daoHan();
-                        } else {
-                            System.out.println("");
-                        }
+                    break;
+                case 5 :
+                System.out.println("Nhap so tai khoan khach hang can dao han: ");
+                s = sc.nextLong();
+                for (int i = 0; i < n; i++) {
+                    d = a[i].getSoTK();
+                    if (s == d) {
+                        System.out.println("Ban chon tai khoan: " + d);
+                        a[i].daoHan();
+                    } else {
+                        System.out.println("");
                     }
                 }
-                case 6 -> {
-                    double chuyen,
-                            nhan,
-                            tienChuyen;
-                    System.out.print("Nhap so tai khoan khach hang chuyen tien:: ");
+                break;
+                case 6 :
+                double chuyen,
+                        nhan,
+                        tienChuyen;
+                        System.out.print("Nhap so tai khoan khach hang chuyen tien:: ");
                     s = sc.nextLong();
                     System.out.print("Nhap so tai khoan khach hang nhan tien: ");
                     c = sc.nextLong();
@@ -115,11 +108,11 @@ public class main {
                             System.out.println("");
                         }
                     }
-                }
-                    default -> {
-                        System.out.println("Bye!!");
-                        flag = false;
-                }
+                    break;
+                    default :
+                    System.out.println("Bye!!");
+                    flag = false;
+                    break;
             }
         }while (flag);
     }
